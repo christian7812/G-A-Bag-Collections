@@ -105,7 +105,7 @@ export const HeroSlideshow: React.FC = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Full Width Hero Banner with Responsive Height */}
-      <div className="relative w-full h-[540px] sm:h-[640px] lg:h-[720px] overflow-hidden">
+      <div className="relative w-full h-[420px] sm:h-[580px] lg:h-[720px] overflow-hidden">
         {BAG_SLIDES.map((slide, idx) => (
           <div
             key={slide.id}
@@ -115,7 +115,7 @@ export const HeroSlideshow: React.FC = () => {
           >
             <img
               src={slide.image}
-              alt={`${slide.name} - Lady carrying bag showcase`}
+              alt={`${slide.name} - bag showcase`}
               style={{ objectPosition: slide.objectPosition || 'center center' }}
               className="w-full h-full object-cover transition-all duration-700"
               loading="eager"
@@ -124,46 +124,51 @@ export const HeroSlideshow: React.FC = () => {
         ))}
 
         {/* Cinematic Vignettes for Luxury Feel & High Text Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/35 z-15 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent z-15 pointer-events-none max-w-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20 z-15 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent z-15 pointer-events-none" />
 
-        {/* Editorial Caption Card on Bottom-Left */}
-        <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-10 lg:bottom-14 lg:left-16 z-20 max-w-md sm:max-w-lg text-left text-white drop-shadow-md">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-widest text-[#EFECE6] mb-2.5">
-            <Sparkles className="w-3 h-3 text-[#D5C6B3]" />
+        {/* Editorial Caption — centred on mobile, bottom-left on desktop */}
+        <div className="absolute inset-x-0 bottom-0 z-20 px-5 pb-8 sm:px-10 sm:pb-10 lg:px-16 lg:pb-14 flex flex-col items-center text-center sm:items-start sm:text-left max-w-full sm:max-w-lg lg:max-w-xl drop-shadow-md text-white">
+
+          {/* Badge pill */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#EFECE6] mb-2 sm:mb-3">
+            <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#D5C6B3]" />
             <span>{current.badge}</span>
             <span>•</span>
             <span className="text-[#D5C6B3]">{current.category}</span>
           </div>
 
-          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
+          {/* Bag name */}
+          <h1 className="font-serif text-xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
             {current.name}
           </h1>
 
-          <p className="text-xs sm:text-base text-white/90 font-light line-clamp-2 mt-2 max-w-md hidden sm:block">
+          {/* Tagline — hidden on mobile, shown sm+ */}
+          <p className="hidden sm:block text-sm sm:text-base text-white/85 font-light line-clamp-2 mt-2 max-w-sm">
             {current.tagline}
           </p>
 
-          <div className="pt-4 sm:pt-5">
+          {/* CTA Button */}
+          <div className="pt-3 sm:pt-5">
             <Link
               to={`/product/${current.slug}`}
-              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-white text-gray-900 hover:bg-[#D5C6B3] hover:text-black transition-all text-sm sm:text-base font-semibold uppercase tracking-widest shadow-xl active:scale-95 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-full bg-white text-gray-900 hover:bg-[#D5C6B3] hover:text-black transition-all text-xs sm:text-sm font-semibold uppercase tracking-widest shadow-xl active:scale-95 group"
             >
               <span>Explore Collection</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
 
-        {/* Pagination Dots at Bottom */}
-        <div className="absolute bottom-5 right-6 sm:bottom-8 sm:right-12 flex items-center gap-2 z-20">
+        {/* Pagination Dots */}
+        <div className="absolute bottom-3 right-4 sm:bottom-8 sm:right-12 flex items-center gap-1.5 sm:gap-2 z-20">
           {BAG_SLIDES.map((_, dotIdx) => (
             <button
               key={dotIdx}
               type="button"
               onClick={() => setCurrentIdx(dotIdx)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentIdx === dotIdx ? 'w-8 bg-white shadow-xs' : 'w-2 bg-white/50 hover:bg-white/80'
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                currentIdx === dotIdx ? 'w-6 sm:w-8 bg-white shadow-xs' : 'w-1.5 sm:w-2 bg-white/50 hover:bg-white/80'
               }`}
               aria-label={`Slide ${dotIdx + 1}`}
             />
