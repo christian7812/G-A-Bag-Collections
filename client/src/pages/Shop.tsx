@@ -29,10 +29,14 @@ export const Shop: React.FC = () => {
     const qParam = searchParams.get('q');
     if (qParam !== null) {
       setSearchQuery(qParam);
+    } else {
+      setSearchQuery('');
     }
     const categoryParam = searchParams.get('category');
     if (categoryParam) {
       setSelectedCategory(categoryParam);
+    } else if (qParam) {
+      setSelectedCategory('All');
     }
     const sortParam = searchParams.get('sort');
     if (sortParam) {
@@ -40,16 +44,35 @@ export const Shop: React.FC = () => {
     }
   }, [searchParams]);
 
+  // Handle Search Input Change with URL sync
+  const handleSearchChange = (val: string) => {
+    setSearchQuery(val);
+    const newParams = new URLSearchParams(searchParams);
+    if (val.trim()) {
+      newParams.set('q', val.trim());
+    } else {
+      newParams.delete('q');
+    }
+    setSearchParams(newParams, { replace: true });
+  };
+
   // Filter & sort logic
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
+      // Exclude invalid or broken products
+      if (!product.images || !product.images[0] || product.images[0].includes('1566150902887-9679ec15dcb5') || product.id === 'pa-prod-05' || product.id === 'pa-prod-09') {
+        return false;
+      }
+
       // Search
       if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase();
+        const query = searchQuery.trim().toLowerCase();
         const matchesName = product.name.toLowerCase().includes(query);
-        const matchesDesc = product.description.toLowerCase().includes(query);
-        const matchesCat = product.category.toLowerCase().includes(query);
-        if (!matchesName && !matchesDesc && !matchesCat) return false;
+        const matchesDesc = (product.description || '').toLowerCase().includes(query);
+        const matchesCat = (product.category || '').toLowerCase().includes(query);
+        const matchesMat = (product.material || '').toLowerCase().includes(query);
+        const matchesColor = (product.colors || []).some((c) => c.name.toLowerCase().includes(query));
+        if (!matchesName && !matchesDesc && !matchesCat && !matchesMat && !matchesColor) return false;
       }
 
       // Category
@@ -101,9 +124,9 @@ export const Shop: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-gray-100">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 mb-2">
-            <span className="w-2 h-2 rounded-full bg-brand-pink" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-brand-pink">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F5F2EB] border border-gray-200 mb-2">
+            <span className="w-2 h-2 rounded-full bg-gray-900" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-gray-900">
               G&A Collection Boutique
             </span>
           </div>
@@ -136,13 +159,13 @@ export const Shop: React.FC = () => {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               placeholder="Search bags, designs, colors..."
-              className="w-full pl-10 pr-9 py-2.5 rounded-full border border-gray-200 bg-white text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand-pink transition shadow-2xs"
+              className="w-full pl-10 pr-9 py-2.5 rounded-full border border-gray-200 bg-white text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-900 transition shadow-2xs"
             />
             {searchQuery && (
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => handleSearchChange('')}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700"
                 aria-label="Clear search"
               >
@@ -160,14 +183,14 @@ export const Shop: React.FC = () => {
               onClick={() => setShowFiltersPanel(!showFiltersPanel)}
               className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-bold transition border ${
                 showFiltersPanel || activeFiltersCount > 0
-                  ? 'border-brand-pink bg-pink-50 text-brand-pink'
+                  ? 'border-gray-900 bg-[#F5F2EB] text-gray-900'
                   : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
               }`}
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
               <span>Filters</span>
               {activeFiltersCount > 0 && (
-                <span className="w-4 h-4 rounded-full bg-brand-pink text-white text-[10px] flex items-center justify-center font-bold">
+                <span className="w-4 h-4 rounded-full bg-gray-900 text-white text-[10px] flex items-center justify-center font-bold">
                   {activeFiltersCount}
                 </span>
               )}
@@ -178,7 +201,7 @@ export const Shop: React.FC = () => {
               <select
                 value={selectedSort}
                 onChange={(e) => setSelectedSort(e.target.value)}
-                className="appearance-none bg-white border border-gray-200 rounded-full pl-3.5 pr-8 py-2.5 text-xs font-bold text-gray-800 focus:outline-none focus:border-brand-pink cursor-pointer shadow-2xs"
+                className="appearance-none bg-white border border-gray-200 rounded-full pl-3.5 pr-8 py-2.5 text-xs font-bold text-gray-800 focus:outline-none focus:border-gray-900 cursor-pointer shadow-2xs"
               >
                 <option value="featured">Featured First</option>
                 <option value="new">New Arrivals</option>
@@ -202,8 +225,8 @@ export const Shop: React.FC = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all shrink-0 ${
                   isSelected
-                    ? 'bg-brand-pink text-white shadow-xs'
-                    : 'bg-white hover:bg-pink-50/60 text-gray-700 border border-gray-200 hover:border-pink-200'
+                    ? 'bg-gray-900 text-white shadow-xs'
+                    : 'bg-white hover:bg-[#F5F2EB]/60 text-gray-700 border border-gray-200 hover:border-gray-400'
                 }`}
               >
                 {cat}
@@ -221,7 +244,7 @@ export const Shop: React.FC = () => {
               </span>
               <button
                 onClick={handleResetFilters}
-                className="text-xs text-brand-pink hover:underline font-bold flex items-center gap-1"
+                className="text-xs text-gray-900 hover:underline font-bold flex items-center gap-1"
               >
                 <RotateCcw className="w-3 h-3" />
                 <span>Reset All</span>
@@ -233,7 +256,7 @@ export const Shop: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-gray-500 font-semibold">Maximum Budget:</span>
-                  <span className="font-extrabold text-brand-pink">GH₵ {maxPrice.toLocaleString()}</span>
+                  <span className="font-extrabold text-gray-900">GH₵ {maxPrice.toLocaleString()}</span>
                 </div>
                 <input
                   type="range"
@@ -242,7 +265,7 @@ export const Shop: React.FC = () => {
                   step={50}
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(Number(e.target.value))}
-                  className="w-full accent-brand-pink cursor-pointer"
+                  className="w-full accent-gray-900 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] text-gray-400">
                   <span>GH₵ 500</span>
@@ -257,7 +280,7 @@ export const Shop: React.FC = () => {
                     type="checkbox"
                     checked={onlyInStock}
                     onChange={(e) => setOnlyInStock(e.target.checked)}
-                    className="w-4 h-4 rounded text-brand-pink accent-brand-pink focus:ring-0 cursor-pointer"
+                    className="w-4 h-4 rounded text-gray-900 accent-gray-900 focus:ring-0 cursor-pointer"
                   />
                   <span>Show In-Stock Handbags Only</span>
                 </label>
@@ -282,32 +305,32 @@ export const Shop: React.FC = () => {
           <div className="flex items-center gap-2 flex-wrap pt-1 text-xs">
             <span className="text-gray-400 text-[11px] font-medium">Active:</span>
             {selectedCategory !== 'All' && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-brand-pink font-bold text-[11px]">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F5F2EB] border border-gray-200 text-gray-900 font-bold text-[11px]">
                 {selectedCategory}
                 <X className="w-3 h-3 cursor-pointer hover:opacity-75" onClick={() => setSelectedCategory('All')} />
               </span>
             )}
             {searchQuery && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-brand-pink font-bold text-[11px]">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F5F2EB] border border-gray-200 text-gray-900 font-bold text-[11px]">
                 &quot;{searchQuery}&quot;
                 <X className="w-3 h-3 cursor-pointer hover:opacity-75" onClick={() => setSearchQuery('')} />
               </span>
             )}
             {maxPrice < 3500 && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-brand-pink font-bold text-[11px]">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F5F2EB] border border-gray-200 text-gray-900 font-bold text-[11px]">
                 Up to GH₵ {maxPrice.toLocaleString()}
                 <X className="w-3 h-3 cursor-pointer hover:opacity-75" onClick={() => setMaxPrice(3500)} />
               </span>
             )}
             {onlyInStock && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-brand-pink font-bold text-[11px]">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F5F2EB] border border-gray-200 text-gray-900 font-bold text-[11px]">
                 In Stock Only
                 <X className="w-3 h-3 cursor-pointer hover:opacity-75" onClick={() => setOnlyInStock(false)} />
               </span>
             )}
             <button
               onClick={handleResetFilters}
-              className="text-[11px] text-gray-500 hover:text-brand-pink underline ml-1"
+              className="text-[11px] text-gray-500 hover:text-black underline ml-1"
             >
               Clear all
             </button>
@@ -319,7 +342,7 @@ export const Shop: React.FC = () => {
       {/* Full-Width Spacious Product Grid (Simple, Modern, Clean) */}
       {filteredProducts.length === 0 ? (
         <div className="bg-white rounded-3xl p-12 sm:p-20 text-center border border-gray-100 shadow-xs space-y-4 max-w-lg mx-auto">
-          <div className="w-14 h-14 rounded-full bg-pink-50 text-brand-pink flex items-center justify-center mx-auto">
+          <div className="w-14 h-14 rounded-full bg-[#F5F2EB] text-gray-900 flex items-center justify-center mx-auto">
             <Search className="w-6 h-6" />
           </div>
           <h3 className="font-serif text-xl font-bold text-gray-900">No handbags found</h3>
@@ -328,13 +351,13 @@ export const Shop: React.FC = () => {
           </p>
           <button
             onClick={handleResetFilters}
-            className="px-6 py-2.5 rounded-full bg-brand-pink hover:bg-brand-pink-dark text-white text-xs font-black uppercase tracking-wider transition shadow-sm"
+            className="px-6 py-2.5 rounded-full bg-gray-900 hover:bg-black text-white text-xs font-black uppercase tracking-wider transition shadow-sm"
           >
             Reset Filters
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

@@ -7,23 +7,37 @@ export default {
   theme: {
     extend: {
       colors: {
+        pink: {
+          50: '#FAF8F5',
+          100: '#F5F2EB',
+          200: '#E5E0D8',
+          300: '#D5C6B3',
+          400: '#A39281',
+          500: '#1A1A1A',
+          600: '#111827',
+          700: '#000000',
+          800: '#000000',
+          900: '#000000',
+        },
         brand: {
-          pink: '#BE123C',         // Deep luxury rose pink
-          'pink-dark': '#881337',    // Rich dark rose / berry
-          'pink-light': '#E11D48',   // Medium vibrant rose
-          'pink-soft': '#FFF1F2',    // Subtle soft blush
-          'pink-subtle': '#FFE4E6',  // Light rose highlight
-          accent: '#BE123C',         // Deep rose accent
-          'accent-dark': '#881337',
-          'accent-light': '#E11D48',
-          soft: '#FFE4E6',
-          bg: '#F8F9FB',             // Clean modern marketplace background
-          'bg-subtle': '#FFFFFF',    // Pure white cards
-          charcoal: '#1F2937',       // Crisp readable dark text
+          pink: '#1A1A1A',           // Replaced pink with Luxury Charcoal / Black
+          'pink-dark': '#000000',    // Pure Black
+          'pink-light': '#2A2A2A',   // Charcoal
+          'pink-soft': '#F5F2EB',    // Warm Studio Sand
+          'pink-subtle': '#EFECE6',  // Mastle Masthead Beige
+          accent: '#1A1A1A',         // Luxury Accent
+          'accent-dark': '#000000',
+          'accent-light': '#2A2A2A',
+          soft: '#F5F2EB',
+          sand: '#D5C6B3',
+          beige: '#EFECE6',
+          bg: '#FAF8F5',
+          'bg-subtle': '#FFFFFF',
+          charcoal: '#1A1A1A',
           muted: '#6B7280',
-          border: '#E5E7EB',
-          deal: '#BE123C',           
-          orange: '#F97316',         
+          border: '#E5E0D8',
+          deal: '#1A1A1A',           
+          orange: '#C5A880',         
         }
       },
       fontFamily: {

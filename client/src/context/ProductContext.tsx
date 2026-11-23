@@ -15,22 +15,52 @@ interface ProductContextType {
   updateOrderStatus: (orderId: string, orderStatus: OrderStatus, paymentStatus?: PaymentStatus) => Promise<Order>;
   getOrderById: (orderId: string) => Order | undefined;
   getOrderByNumber: (orderNumber: string) => Order | undefined;
+  modalProduct: Product | null;
+  openProductModal: (product: Product) => void;
+  closeProductModal: () => void;
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
-const PRODUCTS_STORAGE_KEY = 'ga_collection_products_v2';
-const ORDERS_STORAGE_KEY = 'ga_collection_orders_v1';
+const PRODUCTS_STORAGE_KEY = 'ga_collection_products_v20';
+const ORDERS_STORAGE_KEY = 'ga_collection_orders_v4';
 
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // Clear any outdated cache versions on startup
+  useEffect(() => {
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && (key.startsWith('ga_collection_products_') || key.startsWith('pink_aura_')) && key !== PRODUCTS_STORAGE_KEY) {
+          localStorage.removeItem(key);
+        }
+      }
+    } catch {}
+  }, []);
+
   const [products, setProducts] = useState<Product[]>(() => {
     try {
       const saved = localStorage.getItem(PRODUCTS_STORAGE_KEY);
-      return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const filtered = Array.isArray(parsed) 
+          ? parsed.filter((p: Product) => 
+              p.id !== 'pa-prod-05' && 
+              p.id !== 'pa-prod-09' && 
+              !p.images.some(img => !img || img.includes('1566150902887-9679ec15dcb5'))
+            )
+          : INITIAL_PRODUCTS;
+        return filtered.length > 0 ? filtered : INITIAL_PRODUCTS;
+      }
+      return INITIAL_PRODUCTS;
     } catch {
       return INITIAL_PRODUCTS;
     }
   });
+
+  const [modalProduct, setModalProduct] = useState<Product | null>(null);
+  const openProductModal = (product: Product) => setModalProduct(product);
+  const closeProductModal = () => setModalProduct(null);
 
   const [orders, setOrders] = useState<Order[]>(() => {
     try {
@@ -122,7 +152,14 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         if (res.ok) {
           const data = await res.json();
           if (Array.isArray(data) && data.length > 0) {
-            setProducts(data);
+            const cleanData = data.filter((p: Product) => 
+              p.id !== 'pa-prod-05' && 
+              p.id !== 'pa-prod-09' && 
+              !p.images.some(img => !img || img.includes('1566150902887-9679ec15dcb5'))
+            );
+            if (cleanData.length >= INITIAL_PRODUCTS.length) {
+              setProducts(cleanData);
+            }
           }
         }
       } catch {
@@ -300,6 +337,9 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({ child
         updateOrderStatus,
         getOrderById,
         getOrderByNumber,
+        modalProduct,
+        openProductModal,
+        closeProductModal,
       }}
     >
       {children}

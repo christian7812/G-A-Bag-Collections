@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { ProductProvider } from './context/ProductContext';
@@ -7,8 +7,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { WishlistDrawer } from './components/WishlistDrawer';
-import { AccountModal } from './components/AccountModal';
-import { MobileBottomNav } from './components/MobileBottomNav';
+import { ProductModal } from './components/ProductModal';
 import { Home } from './pages/Home';
 import { Shop } from './pages/Shop';
 import { ProductDetails } from './pages/ProductDetails';
@@ -18,22 +17,16 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 
 const StoreLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [accountModalOpen, setAccountModalOpen] = useState(false);
-
   return (
     <div className="min-h-screen flex flex-col justify-between bg-[#FCFBF9] text-[#1F2937] antialiased">
       <Navbar />
-      <main className="flex-1 pb-16 md:pb-0">
+      <main className="flex-1">
         {children}
       </main>
       <Footer />
       <CartDrawer />
       <WishlistDrawer />
-      <AccountModal
-        isOpen={accountModalOpen}
-        onClose={() => setAccountModalOpen(false)}
-      />
-      <MobileBottomNav onOpenAccount={() => setAccountModalOpen(true)} />
+      <ProductModal />
     </div>
   );
 };

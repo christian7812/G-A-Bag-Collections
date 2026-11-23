@@ -2,208 +2,193 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
 
-interface HeroSlide {
+interface BagSlide {
   id: string;
   name: string;
   category: string;
   tagline: string;
-  bagImage: string;
+  image: string;
   slug: string;
   badge: string;
+  objectPosition?: string;
 }
 
-const HERO_SLIDES: HeroSlide[] = [
+const BAG_SLIDES: BagSlide[] = [
   {
-    id: 'hero-1',
+    id: 'slide-1',
     name: 'The Sovereign Quilted Flap Bag',
-    category: 'Luxury Handbag',
-    tagline: 'Chic, classy and crafted with rose gold hardware and convertible chain strap.',
-    bagImage: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1400&q=85',
-    slug: 'sovereign-quilted-flap-bag',
-    badge: 'Ghana Ladies Favorite',
+    category: 'Signature Luxury Handbag',
+    tagline: 'Hand-stitched diamond quilting in supple calf leather carried with effortless sophistication.',
+    image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=85',
+    slug: 'the-sovereign-quilted-flap-bag',
+    badge: 'Bestseller',
+    objectPosition: 'center 20%',
   },
   {
-    id: 'hero-2',
-    name: 'Monarque Exotic Kelly Top-Handle',
-    category: 'Designer Top-Handle',
-    tagline: 'Sculpted elegance with silk twilly scarf & brass padlock hardware. A statement piece.',
-    bagImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1400&q=85',
+    id: 'slide-2',
+    name: 'Monarque Exotic Top-Handle',
+    category: 'Milano Editorial Favorite',
+    tagline: 'Tailored outerwear styled with handcrafted gold chain leather hardware held in hand.',
+    image: 'https://images.unsplash.com/photo-1729808785118-bbfd41d0149c?auto=format&fit=crop&w=2200&q=85',
     slug: 'monarque-exotic-kelly-bag',
-    badge: 'VIP Collection',
+    badge: 'Trending Now',
+    objectPosition: 'center 40%',
   },
   {
-    id: 'hero-3',
-    name: 'Palais Structured Croc Tote',
-    category: 'Work & Travel Tote',
-    tagline: 'Timeless crocodile-embossed leather silhouette designed for work and daily elegance.',
-    bagImage: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1400&q=85',
+    id: 'slide-3',
+    name: 'Aura Petite Saffiano Crossbody',
+    category: 'Hands-Free Crossbody',
+    tagline: 'Contoured frame resting comfortably across the torso with refined accents in Milan.',
+    image: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=2200&q=85',
+    slug: 'aura-petite-leather-crossbody',
+    badge: 'Duomo Milan Edit',
+    objectPosition: 'center 35%',
+  },
+  {
+    id: 'slide-4',
+    name: 'Capri Gold-Clasp Gala Clutch',
+    category: 'Runway Statement Piece',
+    tagline: 'Sculptural metallic elegance carried effortlessly in hand through city evenings.',
+    image: 'https://images.unsplash.com/photo-1683721122008-48427eb5fec1?auto=format&fit=crop&w=2200&q=85',
+    slug: 'capri-gold-clasp-envelope-clutch',
+    badge: 'Evening Luxury',
+    objectPosition: 'center 48%',
+  },
+  {
+    id: 'slide-5',
+    name: 'Palais Executive Leather Tote',
+    category: 'Everyday Classic Handbag',
+    tagline: 'Spacious luxury silhouette carried comfortably for modern lifestyle and travel.',
+    image: 'https://images.unsplash.com/photo-1505464069456-1145548d5c83?auto=format&fit=crop&w=2200&q=85',
     slug: 'palais-structured-croc-tote',
     badge: 'New Season Arrival',
-  },
-  {
-    id: 'hero-4',
-    name: 'Belgravia Ruched Cloud Pouch',
-    category: 'Evening Shoulder Bag',
-    tagline: 'Soft gathered lambskin with radiant gold links. Perfect for weddings & nights out.',
-    bagImage: 'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1400&q=85',
-    slug: 'belgravia-ruched-cloud-pouch',
-    badge: 'Trending Silhouette',
-  },
-  {
-    id: 'hero-5',
-    name: 'Pastel Rose Designer Shoulder Bag',
-    category: 'Pastel Collection',
-    tagline: 'Blush pink leather with polished turn-lock closure. Feminine charm redefined.',
-    bagImage: 'https://images.unsplash.com/photo-1566150902887-9679ec15dcb5?auto=format&fit=crop&w=1400&q=85',
-    slug: 'sovereign-quilted-flap-bag',
-    badge: 'Best Of Season',
+    objectPosition: 'center 30%',
   }
 ];
 
 export const HeroSlideshow: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIdx, setCurrentIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    setCurrentIdx((prev) => (prev + 1) % BAG_SLIDES.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+    setCurrentIdx((prev) => (prev - 1 + BAG_SLIDES.length) % BAG_SLIDES.length);
   };
 
   useEffect(() => {
+    // Preload all slideshow images for instant switching
+    BAG_SLIDES.forEach((slide) => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+  }, []);
+
+  useEffect(() => {
     if (!isPaused) {
-      timerRef.current = setInterval(nextSlide, 5500);
+      timerRef.current = setInterval(nextSlide, 5000);
     }
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [currentIndex, isPaused]);
+  }, [currentIdx, isPaused]);
 
-  const current = HERO_SLIDES[currentIndex];
+  const current = BAG_SLIDES[currentIdx];
 
   return (
-    <div 
-      className="relative w-full min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] bg-[#FFF0F5] border-b border-pink-200/70 overflow-hidden flex items-center"
+    <section 
+      className="relative w-full overflow-hidden bg-[#141311]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* RIGHT SIDE: Real Handbags in Background (Clearly Visible, Pure Handbags - No People) */}
-      <div className="absolute right-0 top-0 bottom-0 w-full sm:w-[52%] lg:w-[50%] h-full overflow-hidden pointer-events-none">
-        {HERO_SLIDES.map((slide, index) => (
+      {/* Full Width Hero Banner with Responsive Height */}
+      <div className="relative w-full h-[540px] sm:h-[640px] lg:h-[720px] overflow-hidden">
+        {BAG_SLIDES.map((slide, idx) => (
           <div
-            key={`slide-bag-${slide.id}`}
+            key={slide.id}
             className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+              idx === currentIdx ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-101 pointer-events-none z-0'
             }`}
           >
             <img
-              src={slide.bagImage}
-              alt={`${slide.name} - Handbag`}
-              className="w-full h-full object-cover object-center"
+              src={slide.image}
+              alt={`${slide.name} - Lady carrying bag showcase`}
+              style={{ objectPosition: slide.objectPosition || 'center center' }}
+              className="w-full h-full object-cover transition-all duration-700"
+              loading="eager"
             />
           </div>
         ))}
 
-        {/* Clean feather transition between the pink background and the bag photo */}
-        <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-24 lg:w-36 bg-gradient-to-r from-[#FFF0F5] to-transparent" />
-        {/* Mobile readability overlay */}
-        <div className="sm:hidden absolute inset-0 bg-[#FFF0F5]/75" />
-      </div>
+        {/* Cinematic Vignettes for Luxury Feel & High Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/35 z-15 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent z-15 pointer-events-none max-w-2xl" />
 
-      {/* Decorative Warm Ambient Glow */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-pink-300/35 rounded-full blur-3xl pointer-events-none" />
-
-      {/* LEFT SIDE: Brand Story, Headline & Actions */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-18 z-10 w-full">
-        <div className="max-w-xl space-y-4 sm:space-y-6 text-left">
-          
-          {/* Pink Pill Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-pink-200 shadow-sm backdrop-blur-xs">
-            <Sparkles className="w-3.5 h-3.5 text-brand-pink fill-brand-pink" />
-            <span className="text-[11px] sm:text-xs font-black text-brand-pink uppercase tracking-wider">
-              {current.badge}
-            </span>
-            <span className="text-gray-300">•</span>
-            <span className="text-[11px] text-gray-600 font-medium">{current.category}</span>
+        {/* Editorial Caption Card on Bottom-Left */}
+        <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-10 lg:bottom-14 lg:left-16 z-20 max-w-md sm:max-w-lg text-left text-white drop-shadow-md">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-widest text-[#EFECE6] mb-2.5">
+            <Sparkles className="w-3 h-3 text-[#D5C6B3]" />
+            <span>{current.badge}</span>
+            <span>•</span>
+            <span className="text-[#D5C6B3]">{current.category}</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.12] tracking-tight drop-shadow-2xs">
-            Carry Your Style.<br />
-            <span className="italic font-normal text-brand-pink">
-              Own Your Confidence.
-            </span>
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-tight">
+            {current.name}
           </h1>
 
-          {/* Tagline */}
-          <p className="text-xs sm:text-base text-gray-700 max-w-lg leading-relaxed font-light">
+          <p className="text-xs sm:text-base text-white/90 font-light line-clamp-2 mt-2 max-w-md hidden sm:block">
             {current.tagline}
           </p>
 
-          {/* Action Buttons */}
-          <div className="pt-2 flex items-center gap-3 sm:gap-4 flex-wrap">
+          <div className="pt-3 sm:pt-4">
             <Link
               to={`/product/${current.slug}`}
-              className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-brand-pink hover:bg-brand-pink-dark text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center gap-2 group active:scale-98"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-gray-900 hover:bg-[#D5C6B3] hover:text-black transition-all text-xs font-bold uppercase tracking-wider shadow-lg active:scale-95"
             >
-              <span>Shop This Bag</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/shop"
-              className="px-6 py-3 sm:py-3.5 rounded-full bg-white/95 hover:bg-white text-gray-800 border border-pink-200 text-xs font-bold uppercase tracking-wider transition shadow-2xs hover:border-brand-pink backdrop-blur-xs"
-            >
-              View Collection
+              <span>Explore Collection</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
+        </div>
 
-          {/* Social Proof */}
-          <div className="pt-2 flex items-center gap-3 text-xs text-gray-600">
-            <div className="flex -space-x-2">
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Customer" />
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Customer" />
-              <img className="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Customer" />
-            </div>
-            <span className="text-[11px] font-semibold text-gray-700">
-              Loved by <strong className="text-brand-pink">1,000+</strong> ladies in Ghana
-            </span>
-          </div>
+        {/* Floating Navigation Arrows */}
+        <button
+          type="button"
+          onClick={prevSlide}
+          className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/50 hover:bg-white text-white hover:text-black shadow-lg flex items-center justify-center transition hover:scale-105 z-20 backdrop-blur-md border border-white/20"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
+        <button
+          type="button"
+          onClick={nextSlide}
+          className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/50 hover:bg-white text-white hover:text-black shadow-lg flex items-center justify-center transition hover:scale-105 z-20 backdrop-blur-md border border-white/20"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        {/* Pagination Dots at Bottom */}
+        <div className="absolute bottom-5 right-6 sm:bottom-8 sm:right-12 flex items-center gap-2 z-20">
+          {BAG_SLIDES.map((_, dotIdx) => (
+            <button
+              key={dotIdx}
+              type="button"
+              onClick={() => setCurrentIdx(dotIdx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentIdx === dotIdx ? 'w-8 bg-white shadow-xs' : 'w-2 bg-white/50 hover:bg-white/80'
+              }`}
+              aria-label={`Slide ${dotIdx + 1}`}
+            />
+          ))}
         </div>
       </div>
-
-      {/* Floating Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-gray-800 shadow-md flex items-center justify-center transition border border-pink-100 hover:text-brand-pink z-20 backdrop-blur-xs"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-gray-800 shadow-md flex items-center justify-center transition border border-pink-100 hover:text-brand-pink z-20 backdrop-blur-xs"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
-      {/* Slide Navigation Dots */}
-      <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-20">
-        {HERO_SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              currentIndex === idx ? 'w-8 bg-brand-pink shadow-xs' : 'w-2 bg-pink-300 hover:bg-pink-400'
-            }`}
-            aria-label={`Slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };

@@ -178,14 +178,14 @@ export const Checkout: React.FC = () => {
   if (cart.length === 0 && !activeOrder) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-24 text-center space-y-4">
-        <div className="w-16 h-16 rounded-full bg-pink-50 text-brand-pink flex items-center justify-center mx-auto">
+        <div className="w-16 h-16 rounded-full bg-[#F5F2EB] text-gray-900 flex items-center justify-center mx-auto">
           <ShoppingBag className="w-8 h-8" />
         </div>
         <h2 className="font-serif text-3xl font-bold text-gray-900">Your Shopping Bag is Empty</h2>
         <p className="text-sm text-gray-500">Please add an authentic handbag to your bag before checking out.</p>
         <Link
           to="/shop"
-          className="inline-block px-8 py-3.5 rounded-full bg-brand-pink text-white hover:bg-brand-pink-dark transition text-xs font-semibold uppercase tracking-wider"
+          className="inline-block px-8 py-3.5 rounded-full bg-gray-900 text-white hover:bg-black transition text-xs font-semibold uppercase tracking-wider"
         >
           Explore Handbags
         </Link>
@@ -199,7 +199,7 @@ export const Checkout: React.FC = () => {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-gray-200 gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-black uppercase tracking-widest text-brand-pink bg-pink-50 px-2.5 py-0.5 rounded-full">
+            <span className="text-[10px] font-black uppercase tracking-widest text-gray-900 bg-[#F5F2EB] px-2.5 py-0.5 rounded-full">
               SECURE CHECKOUT
             </span>
             <span className="text-xs text-gray-400">• Step-by-Step Order</span>
@@ -231,7 +231,7 @@ export const Checkout: React.FC = () => {
           <div className="bg-white p-5 sm:p-7 rounded-2xl border border-gray-100 shadow-sm space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-brand-pink text-white flex items-center justify-center font-bold text-xs">
+                <div className="w-7 h-7 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xs">
                   1
                 </div>
                 <h2 className="font-bold text-base text-gray-900">
@@ -245,7 +245,7 @@ export const Checkout: React.FC = () => {
               {/* Full Name */}
               <div className="sm:col-span-2 space-y-1.5">
                 <label className="font-bold text-gray-800">
-                  Full Name <span className="text-brand-pink">*</span>
+                  Full Name <span className="text-gray-900">*</span>
                 </label>
                 <input
                   type="text"
@@ -253,14 +253,14 @@ export const Checkout: React.FC = () => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Akosua Darko"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink transition"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 transition"
                 />
               </div>
 
               {/* Phone number */}
               <div className="space-y-1.5">
                 <label className="font-bold text-gray-800 flex items-center justify-between">
-                  <span>Mobile Phone Number <span className="text-brand-pink">*</span></span>
+                  <span>Mobile Phone Number <span className="text-gray-900">*</span></span>
                   <span className="text-[10px] text-gray-400">🇬🇭 Ghana</span>
                 </label>
                 <input
@@ -269,7 +269,7 @@ export const Checkout: React.FC = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="e.g. 024 412 3456"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink transition"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 transition"
                 />
                 <span className="text-[10px] text-gray-400 block">Used for rider calls and MoMo payment prompt</span>
               </div>
@@ -284,7 +284,7 @@ export const Checkout: React.FC = () => {
                   value={alternatePhone}
                   onChange={(e) => setAlternatePhone(e.target.value)}
                   placeholder="e.g. 050 987 6543"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink transition"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 transition"
                 />
                 <span className="text-[10px] text-gray-400 block">Alternative number in case you're unreachable</span>
               </div>
@@ -299,19 +299,19 @@ export const Checkout: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="e.g. akosua@gmail.com"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink transition"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 transition"
                 />
               </div>
 
               {/* Region */}
               <div className="space-y-1.5">
                 <label className="font-bold text-gray-800">
-                  Region <span className="text-brand-pink">*</span>
+                  Region <span className="text-gray-900">*</span>
                 </label>
                 <select
                   value={selectedRegion}
                   onChange={handleRegionChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink cursor-pointer font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 cursor-pointer font-medium"
                 >
                   {GHANA_REGIONS.map((reg) => (
                     <option key={reg.name} value={reg.name}>
@@ -324,12 +324,12 @@ export const Checkout: React.FC = () => {
               {/* City */}
               <div className="space-y-1.5">
                 <label className="font-bold text-gray-800">
-                  City / Town <span className="text-brand-pink">*</span>
+                  City / Town <span className="text-gray-900">*</span>
                 </label>
                 <select
                   value={selectedCity}
                   onChange={(e) => setSelectedCity(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink cursor-pointer font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 cursor-pointer font-medium"
                 >
                   {regionData.cities.map((city) => (
                     <option key={city} value={city}>
@@ -342,7 +342,7 @@ export const Checkout: React.FC = () => {
               {/* Street Address */}
               <div className="sm:col-span-2 space-y-1.5">
                 <label className="font-bold text-gray-800">
-                  Delivery Address & Prominent Landmark <span className="text-brand-pink">*</span>
+                  Delivery Address & Prominent Landmark <span className="text-gray-900">*</span>
                 </label>
                 <textarea
                   required
@@ -350,7 +350,7 @@ export const Checkout: React.FC = () => {
                   value={deliveryAddress}
                   onChange={(e) => setDeliveryAddress(e.target.value)}
                   placeholder="e.g. House No. 24, Spintex Road, near Coastal Junction / Shell Station"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink transition resize-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 transition resize-none"
                 />
               </div>
 
@@ -364,7 +364,7 @@ export const Checkout: React.FC = () => {
                   value={deliveryInstructions}
                   onChange={(e) => setDeliveryInstructions(e.target.value)}
                   placeholder="e.g. Leave with building receptionist / call 15 mins before arrival"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-brand-pink transition"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-gray-900 transition"
                 />
               </div>
             </div>
@@ -374,7 +374,7 @@ export const Checkout: React.FC = () => {
           <div className="bg-white p-5 sm:p-7 rounded-2xl border border-gray-100 shadow-sm space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-brand-pink text-white flex items-center justify-center font-bold text-xs">
+                <div className="w-7 h-7 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xs">
                   2
                 </div>
                 <h2 className="font-bold text-base text-gray-900">
@@ -388,7 +388,7 @@ export const Checkout: React.FC = () => {
               <label
                 className={`flex items-start gap-3.5 p-4 rounded-xl border-2 cursor-pointer transition ${
                   deliveryMethod === 'door'
-                    ? 'border-brand-pink bg-pink-50/30'
+                    ? 'border-gray-900 bg-[#F5F2EB]/30'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -397,15 +397,15 @@ export const Checkout: React.FC = () => {
                   name="deliveryMethod"
                   checked={deliveryMethod === 'door'}
                   onChange={() => setDeliveryMethod('door')}
-                  className="mt-1 accent-brand-pink"
+                  className="mt-1 accent-gray-900"
                 />
                 <div className="flex-1 text-xs">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-                      <Truck className="w-4 h-4 text-brand-pink" />
+                      <Truck className="w-4 h-4 text-gray-900" />
                       Doorstep Courier Delivery
                     </span>
-                    <span className="font-black text-brand-pink">
+                    <span className="font-black text-gray-900">
                       {subtotal >= 2000 ? 'FREE' : `GH₵ ${regionData.fee}`}
                     </span>
                   </div>
@@ -422,7 +422,7 @@ export const Checkout: React.FC = () => {
               <label
                 className={`flex items-start gap-3.5 p-4 rounded-xl border-2 cursor-pointer transition ${
                   deliveryMethod === 'pickup'
-                    ? 'border-brand-pink bg-pink-50/30'
+                    ? 'border-gray-900 bg-[#F5F2EB]/30'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -431,15 +431,15 @@ export const Checkout: React.FC = () => {
                   name="deliveryMethod"
                   checked={deliveryMethod === 'pickup'}
                   onChange={() => setDeliveryMethod('pickup')}
-                  className="mt-1 accent-brand-pink"
+                  className="mt-1 accent-gray-900"
                 />
                 <div className="flex-1 text-xs">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-                      <Building2 className="w-4 h-4 text-brand-pink" />
+                      <Building2 className="w-4 h-4 text-gray-900" />
                       Pick-up Station
                     </span>
-                    <span className="font-black text-brand-pink">
+                    <span className="font-black text-gray-900">
                       {subtotal >= 2000 ? 'FREE' : 'GH₵ 15'}
                     </span>
                   </div>
@@ -451,7 +451,7 @@ export const Checkout: React.FC = () => {
                       <select
                         value={pickupStation}
                         onChange={(e) => setPickupStation(e.target.value)}
-                        className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white outline-none focus:border-brand-pink"
+                        className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white outline-none focus:border-gray-900"
                       >
                         <option value="Accra Mall Pickup Station - Tetteh Quarshie">Accra Mall Hub - Tetteh Quarshie</option>
                         <option value="Achimota Retail Centre Station">Achimota Retail Centre Station</option>
@@ -469,7 +469,7 @@ export const Checkout: React.FC = () => {
           <div className="bg-white p-5 sm:p-7 rounded-2xl border border-gray-100 shadow-sm space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-brand-pink text-white flex items-center justify-center font-bold text-xs">
+                <div className="w-7 h-7 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xs">
                   3
                 </div>
                 <h2 className="font-bold text-base text-gray-900">
@@ -483,7 +483,7 @@ export const Checkout: React.FC = () => {
               <label
                 className={`flex items-start gap-3.5 p-4 rounded-xl border-2 cursor-pointer transition ${
                   paymentMethod === 'paystack'
-                    ? 'border-brand-pink bg-pink-50/30'
+                    ? 'border-gray-900 bg-[#F5F2EB]/30'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -492,12 +492,12 @@ export const Checkout: React.FC = () => {
                   name="paymentMethod"
                   checked={paymentMethod === 'paystack'}
                   onChange={() => setPaymentMethod('paystack')}
-                  className="mt-1 accent-brand-pink"
+                  className="mt-1 accent-gray-900"
                 />
                 <div className="flex-1 text-xs">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-                      <CreditCard className="w-4 h-4 text-brand-pink" />
+                      <CreditCard className="w-4 h-4 text-gray-900" />
                       Mobile Money & Cards (Instant Paystack)
                     </span>
                     <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
@@ -514,7 +514,7 @@ export const Checkout: React.FC = () => {
               <label
                 className={`flex items-start gap-3.5 p-4 rounded-xl border-2 cursor-pointer transition ${
                   paymentMethod === 'cod'
-                    ? 'border-brand-pink bg-pink-50/30'
+                    ? 'border-gray-900 bg-[#F5F2EB]/30'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
@@ -523,12 +523,12 @@ export const Checkout: React.FC = () => {
                   name="paymentMethod"
                   checked={paymentMethod === 'cod'}
                   onChange={() => setPaymentMethod('cod')}
-                  className="mt-1 accent-brand-pink"
+                  className="mt-1 accent-gray-900"
                 />
                 <div className="flex-1 text-xs">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-gray-900 text-sm flex items-center gap-1.5">
-                      <ShieldCheck className="w-4 h-4 text-brand-pink" />
+                      <ShieldCheck className="w-4 h-4 text-gray-900" />
                       Pay on Delivery (Cash or MoMo)
                     </span>
                     <span className="text-[10px] font-bold text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full">
@@ -547,7 +547,7 @@ export const Checkout: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 px-6 rounded-xl bg-brand-pink hover:bg-brand-pink-dark text-white font-black text-sm uppercase tracking-wider shadow-lg transition-all duration-200 flex items-center justify-center gap-2 group active:scale-98 disabled:opacity-50"
+            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r bg-gray-900 hover:bg-black hover:brightness-105 text-white font-black text-sm uppercase tracking-wider shadow-xl transition-all duration-200 flex items-center justify-center gap-2 group active:scale-95 disabled:opacity-50"
           >
             <span>CONFIRM ORDER (GH₵ {grandTotal.toLocaleString()})</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -620,7 +620,7 @@ export const Checkout: React.FC = () => {
                     setPromoMessage(null);
                   }}
                   placeholder="Enter Voucher Code (e.g. GA50)"
-                  className="flex-1 px-3 py-2 text-xs border border-gray-200 rounded-xl outline-none focus:border-brand-pink uppercase"
+                  className="flex-1 px-3 py-2 text-xs border border-gray-200 rounded-xl outline-none focus:border-gray-900 uppercase"
                 />
                 <button
                   type="submit"
@@ -666,7 +666,7 @@ export const Checkout: React.FC = () => {
 
             <div className="pt-3 border-t border-gray-200 flex justify-between items-baseline">
               <span className="text-sm font-black text-gray-900 uppercase">Total to Pay</span>
-              <span className="text-2xl font-black text-brand-pink">
+              <span className="text-2xl font-black text-gray-900">
                 GH₵ {grandTotal.toLocaleString()}
               </span>
             </div>

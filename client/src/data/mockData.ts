@@ -28,7 +28,7 @@ export const CATEGORIES: { name: Category; description: string; image: string; i
   {
     name: 'Clutches',
     description: 'Gala-ready statement pieces designed to captivate.',
-    image: 'https://images.unsplash.com/photo-1566150902887-9679ec15dcb5?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1575032617751-6ddec2089882?auto=format&fit=crop&w=800&q=80',
     itemCount: 5
   },
   {
@@ -49,13 +49,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'Handbags',
     images: [
       'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
         name: 'Blush Rose', 
-        hex: '#F8BBD0', 
+        hex: '#D5C6B3', 
         design: 'Model 1 • Diamond Quilted Signature',
         image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
       },
@@ -96,8 +95,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'Crossbody Bags',
     images: [
       'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
@@ -142,8 +140,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'Tote Bags',
     images: [
       'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
@@ -189,8 +186,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'Shoulder Bags',
     images: [
       'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
@@ -207,7 +203,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       { 
         name: 'Deep Rose', 
-        hex: '#BE123C', 
+        hex: '#1A1A1A', 
         design: 'Model 3 • Turn-Lock Evening Pouch',
         image: 'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80'
       }
@@ -224,51 +220,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Interior card organizer pocket'
     ]
   },
-  {
-    id: 'pa-prod-05',
-    name: 'Lumière Crystal Gala Envelope Clutch',
-    slug: 'lumiere-crystal-gala-clutch',
-    price: 1320,
-    category: 'Clutches',
-    images: [
-      'https://images.unsplash.com/photo-1566150902887-9679ec15dcb5?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
-    ],
-    colors: [
-      { 
-        name: 'Rose Sparkle', 
-        hex: '#FAD2E1', 
-        design: 'Model 1 • Pavé Crystal Gala Envelope',
-        image: 'https://images.unsplash.com/photo-1566150902887-9679ec15dcb5?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Silver Starlight', 
-        hex: '#ECEFF1', 
-        design: 'Model 2 • Smooth Satin Minimalist',
-        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Gold Radiance', 
-        hex: '#E5C158', 
-        design: 'Model 3 • Quilted Evening Clutch',
-        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
-      }
-    ],
-    stock: 6,
-    rating: 4.9,
-    reviewCount: 31,
-    description: 'An evening showstopper handcrafted with precision-cut Austrian pavé crystals along the envelope flap. Emits an ethereal luminescence under gala lights and candlelight.',
-    material: 'Lustrous satin exterior encrusted with premium crystal pavé',
-    dimensions: '24cm (L) x 13cm (H) x 5cm (W)',
-    features: [
-      'Jewelled brooch clasp',
-      'Discreet drop-in serpentine chain strap',
-      'Holds iPhone 16 Pro Max, lipstick, cardholder, and keys'
-    ],
-    isFeatured: true
-  },
-  {
+    {
     id: 'pa-prod-06',
     name: 'Monarque Exotic Kelly Top-Handle',
     slug: 'monarque-exotic-kelly-bag',
@@ -277,8 +229,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'Luxury Bags',
     images: [
       'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
@@ -323,8 +274,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'Shoulder Bags',
     images: [
       'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
@@ -341,7 +291,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       { 
         name: 'Rose Quartz', 
-        hex: '#BE123C', 
+        hex: '#1A1A1A', 
         design: 'Model 3 • Quilted Flap Accent Saddle',
         image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
       }
@@ -366,8 +316,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     price: 1650,
     category: 'Tote Bags',
     images: [
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
@@ -402,148 +351,15 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Reinforced bottom panel'
     ]
   },
-  {
-    id: 'pa-prod-09',
-    name: 'Elysian Minaudière Box Clutch',
-    slug: 'elysian-minaudiere-box-clutch',
-    price: 1100,
-    category: 'Clutches',
-    images: [
-      'https://images.unsplash.com/photo-1566150902887-9679ec15dcb5?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80'
-    ],
-    colors: [
-      { 
-        name: 'Rose Gold Mirror', 
-        hex: '#B76E79', 
-        design: 'Model 1 • Mother-of-Pearl Marbled Box',
-        image: 'https://images.unsplash.com/photo-1566150902887-9679ec15dcb5?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Pearl Shell', 
-        hex: '#F0EAD6', 
-        design: 'Model 2 • Sculptural Iridescent Minaudière',
-        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Midnight Opal', 
-        hex: '#261C2C', 
-        design: 'Model 3 • Gilded Perimeter Evening Clutch',
-        image: 'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80'
-      }
-    ],
-    stock: 8,
-    rating: 4.8,
-    reviewCount: 18,
-    description: 'A rigid sculptural hard-shell clutch with Mother-of-Pearl resin marbling and polished 18K rose gold-plated perimeter framing. A jewelry piece in handbag form.',
-    material: 'Hand-cast iridescent resin with metallic frame',
-    dimensions: '19cm (L) x 11cm (H) x 5cm (W)',
-    features: [
-      'Push-clasp globe closure',
-      'Velvet-flocked inner lining',
-      'Concealable fine jewelry chain'
-    ],
-    isNewArrival: true
-  },
-  {
-    id: 'pa-prod-10',
-    name: 'Versailles Micro Kelly Crossbody',
-    slug: 'versailles-micro-kelly-crossbody',
-    price: 950,
-    originalPrice: 1200,
-    category: 'Crossbody Bags',
-    images: [
-      'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
-    ],
-    colors: [
-      { 
-        name: 'Sweet Cherry Blossom', 
-        hex: '#FFB7C5', 
-        design: 'Model 1 • Epsom Grain Mini Kelly',
-        image: 'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Bright Rose', 
-        hex: '#E91E63', 
-        design: 'Model 2 • Pedestal Structured Crossbody',
-        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Pearl White', 
-        hex: '#FFFFFF', 
-        design: 'Model 3 • Quilted Flap Micro Silhouette',
-        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
-      }
-    ],
-    stock: 18,
-    rating: 4.7,
-    reviewCount: 39,
-    description: 'Chic micro proportions with maximum statement power. Holds your key essentials with impeccable Parisian polish.',
-    material: 'Epsom grain calfskin',
-    dimensions: '18cm (L) x 13cm (H) x 6cm (W)',
-    features: [
-      'Turn-lock clasp',
-      'Detachable cross-body strap',
-      'Structured top handle'
-    ],
-    isBestSeller: true
-  },
-  {
-    id: 'pa-prod-11',
-    name: 'Astrid Pleated Bucket Handbag',
-    slug: 'astrid-pleated-bucket-bag',
-    price: 1280,
-    category: 'Handbags',
-    images: [
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
-    ],
-    colors: [
-      { 
-        name: 'Rose Champagne', 
-        hex: '#F7D6D0', 
-        design: 'Model 1 • Fluted Origami Pleat Model',
-        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Warm Cream', 
-        hex: '#FFF8EE', 
-        design: 'Model 2 • Smooth Drawstring Bucket',
-        image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
-      },
-      { 
-        name: 'Blush Blossom', 
-        hex: '#BE123C', 
-        design: 'Model 3 • Brass Studded Pedestal Model',
-        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
-      }
-    ],
-    stock: 15,
-    rating: 4.9,
-    reviewCount: 21,
-    description: 'Fluted origami pleats create an alluring columnar silhouette with a drawstring leather cord and faceted metallic tassels.',
-    material: 'Nappa leather with permanent accordion heat pleating',
-    dimensions: '22cm (Diameter) x 25cm (H)',
-    features: [
-      'Cinch drawstring closure with weighted tassel finials',
-      'Solid round base with brass studs',
-      'Internal zip pocket'
-    ]
-  },
-  {
+    {
     id: 'pa-prod-12',
     name: 'Imperia Heritage Doctor Bag',
     slug: 'imperia-heritage-doctor-bag',
     price: 2450,
     category: 'Luxury Bags',
     images: [
-      'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1554342872-034a06541bad?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
       { 
@@ -560,7 +376,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       { 
         name: 'Antique Rose', 
-        hex: '#881337', 
+        hex: '#2B2B2B', 
         design: 'Model 3 • Vintage Lock Heritage Silhouette',
         image: 'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80'
       }
@@ -578,6 +394,305 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Interior zip compartment and document sleeves'
     ],
     isFeatured: true
+  },
+  {
+    id: 'pa-prod-13',
+    name: 'The Siena Minimalist Leather Tote',
+    slug: 'siena-minimalist-leather-tote',
+    price: 1350,
+    originalPrice: 1600,
+    category: 'Tote Bags',
+    images: [
+      'https://images.unsplash.com/photo-1563903530908-afdd155d057a?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Warm Cognac',
+        hex: '#9E5B32',
+        design: 'Model 1 • Seamless Grain Leather',
+        image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Bone Cream',
+        hex: '#F5F2EB',
+        design: 'Model 2 • Polished Nappa',
+        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 18,
+    rating: 4.9,
+    reviewCount: 42,
+    description: 'An architectural everyday tote with clean vertical lines, crafted from supple full-grain calfskin with spacious capacity.',
+    material: '100% Full-grain calfskin leather with micro-suede interior',
+    dimensions: '35cm (L) x 28cm (H) x 14cm (W)',
+    features: [
+      'Spacious main compartment with magnetic snap',
+      'Dual slender shoulder straps with reinforced stitching',
+      'Detachable interior zip wristlet pouch'
+    ],
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: 'pa-prod-14',
+    name: 'Celeste Trapeze Structured Satchel',
+    slug: 'celeste-trapeze-structured-satchel',
+    price: 1590,
+    originalPrice: 1850,
+    category: 'Handbags',
+    images: [
+      'https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Midnight Onyx',
+        hex: '#1C1C1E',
+        design: 'Model 1 • Flared Trapeze Wings',
+        image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Sandstone Tan',
+        hex: '#D2B48C',
+        design: 'Model 2 • Smooth Saddle Leather',
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 12,
+    rating: 4.8,
+    reviewCount: 29,
+    description: 'Distinctive flared trapeze profile with rolled top handles and a detachable crossbody strap, finished with brushed golden hardware.',
+    material: 'Smooth polished calfskin with structural reinforcement',
+    dimensions: '29cm (L) x 21cm (H) x 11cm (W)',
+    features: [
+      'Zip-top closure with security lock tab',
+      'Detachable and adjustable leather shoulder strap',
+      'Internal organizer pockets'
+    ],
+    isBestSeller: true
+  },
+  {
+    id: 'pa-prod-15',
+    name: 'Aria Half-Moon Curved Shoulder Bag',
+    slug: 'aria-half-moon-curved-shoulder-bag',
+    price: 950,
+    category: 'Shoulder Bags',
+    images: [
+      'https://images.unsplash.com/photo-1527385352018-3c26dd6c3916?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Caramel Clay',
+        hex: '#B87333',
+        design: 'Model 1 • Ergonomic Crescent Shape',
+        image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Chalk Beige',
+        hex: '#ECE7DE',
+        design: 'Model 2 • Minimalist Nappa Curve',
+        image: 'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 20,
+    rating: 4.9,
+    reviewCount: 36,
+    description: 'Sculptural crescent shape that nestles comfortably under the arm. Ultra-lightweight yet holds daily essentials with ease.',
+    material: 'Supple Italian calfskin with leather-lined strap',
+    dimensions: '27cm (L) x 18cm (H) x 6cm (W)',
+    features: [
+      'Smooth gliding brass zip closure',
+      'Fixed curved shoulder drop (26cm)',
+      'Custom gold-stamped G&A emblem'
+    ],
+    isNewArrival: true
+  },
+  {
+    id: 'pa-prod-16',
+    name: 'Valerie Structured Box Crossbody',
+    slug: 'valerie-structured-box-crossbody',
+    price: 1150,
+    originalPrice: 1350,
+    category: 'Crossbody Bags',
+    images: [
+      'https://images.unsplash.com/photo-1591348278863-a8fb3887e2aa?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Muted Taupe',
+        hex: '#A0937D',
+        design: 'Model 1 • Framed Box Silhouette',
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Jet Black',
+        hex: '#111111',
+        design: 'Model 2 • Gold Turnlock Accent',
+        image: 'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 16,
+    rating: 4.7,
+    reviewCount: 22,
+    description: 'A structured vanity-style box bag designed for evening cocktails or stylish city strolls. Features a high-gloss latch and velvet interior lining.',
+    material: 'Box-calf leather with high scratch-resistant glaze',
+    dimensions: '19cm (L) x 14cm (H) x 8.5cm (W)',
+    features: [
+      'Top handle plus detachable chain strap',
+      'Mirror inside the lid',
+      'Gold-toned clasp with engraved logo'
+    ]
+  },
+  {
+    id: 'pa-prod-17',
+    name: 'Elysian Woven Leather Shoulder Bag',
+    slug: 'elysian-woven-leather-shoulder-bag',
+    price: 1780,
+    category: 'Shoulder Bags',
+    images: [
+      'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Espresso Intreccio',
+        hex: '#3E2723',
+        design: 'Model 1 • Hand-Woven Leather Lattice',
+        image: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Vanilla Bean',
+        hex: '#FAF0E6',
+        design: 'Model 2 • Smooth Weave Edition',
+        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 8,
+    rating: 5.0,
+    reviewCount: 19,
+    description: 'Masterfully hand-braided leather strips form an ultra-flexible slouchy shape with rich texture and effortless sophistication.',
+    material: '100% Italian Nappa woven by artisanal leather smiths',
+    dimensions: '32cm (L) x 24cm (H) x 10cm (W)',
+    features: [
+      'Concealed magnetic frame closure',
+      'Seamless integrated shoulder strap',
+      'Interior zip compartment and phone pocket'
+    ],
+    isFeatured: true
+  },
+  {
+    id: 'pa-prod-18',
+    name: 'Monaco Dual-Handle City Shopper',
+    slug: 'monaco-dual-handle-city-shopper',
+    price: 1280,
+    category: 'Tote Bags',
+    images: [
+      'https://images.unsplash.com/photo-1590739225287-bd31519780c3?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Oatmeal & Tan',
+        hex: '#D7C4B7',
+        design: 'Model 1 • Contrast Trim Shopper',
+        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Charcoal',
+        hex: '#333333',
+        design: 'Model 2 • Monochrome Urban Tote',
+        image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 25,
+    rating: 4.8,
+    reviewCount: 31,
+    description: 'Versatile dual-handle design allowing handheld carrying or effortless shoulder wear. Perfect for office, travel, or relaxed weekends.',
+    material: 'Durable pebbled leather with water-repellent finish',
+    dimensions: '38cm (L) x 30cm (H) x 15cm (W)',
+    features: [
+      'Dual grab handles and long shoulder straps',
+      'Padded laptop divider fits 15-inch device',
+      'Flat reinforced base with metal studs'
+    ]
+  },
+  {
+    id: 'pa-prod-19',
+    name: 'Capri Gold-Clasp Envelope Clutch',
+    slug: 'capri-gold-clasp-envelope-clutch',
+    price: 820,
+    originalPrice: 950,
+    category: 'Clutches',
+    images: [
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Metallic Gold Dust',
+        hex: '#D4AF37',
+        design: 'Model 1 • Shimmer Envelope Flap',
+        image: 'https://images.unsplash.com/photo-1575032617751-6ddec2089882?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Pure Onyx',
+        hex: '#111111',
+        design: 'Model 2 • Classic Evening Clutch',
+        image: 'https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 14,
+    rating: 4.9,
+    reviewCount: 27,
+    description: 'Sleek triangular envelope flap with an ornate brushed brass bar clasp. Accompanied by a whisper-thin jewelry chain strap.',
+    material: 'Fine grain lambskin with gold foil edge gilding',
+    dimensions: '24cm (L) x 13cm (H) x 4cm (W)',
+    features: [
+      'Removable jewelry-grade serpentine chain strap',
+      '6 internal card slots and slip pocket',
+      'Magnetic snap closure under gold bar'
+    ]
+  },
+  {
+    id: 'pa-prod-20',
+    name: 'Vendôme Grand Nappa Shopper',
+    slug: 'vendome-grand-nappa-shopper',
+    price: 2150,
+    category: 'Luxury Bags',
+    images: [
+      'https://images.unsplash.com/photo-1614179689702-355944cd0918?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      {
+        name: 'Chestnut Burgundy',
+        hex: '#4A0E17',
+        design: 'Model 1 • Polished Saddle Finish',
+        image: 'https://images.unsplash.com/photo-1614179689702-355944cd0918?auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        name: 'Deep Espresso',
+        hex: '#2B1B17',
+        design: 'Model 2 • Antiqued Brass Hardware',
+        image: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=80'
+      }
+    ],
+    stock: 7,
+    rating: 5.0,
+    reviewCount: 18,
+    description: 'An heirloom-quality luxury shopper produced in limited editions. Ultra-supple glove-tanned nappa with hand-burnished edge staining.',
+    material: 'Hand-dyed full grain Italian Nappa leather',
+    dimensions: '40cm (L) x 32cm (H) x 16cm (W)',
+    features: [
+      'Hand-braided rolled leather handles',
+      'Solid brass padlock with serial numbering',
+      'Luxurious suede lining with zippered compartments'
+    ],
+    isFeatured: true,
+    isBestSeller: true
   }
 ];
 

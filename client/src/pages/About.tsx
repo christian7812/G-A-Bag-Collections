@@ -8,7 +8,7 @@ export const About: React.FC = () => {
       {/* Editorial Hero */}
       <section className="relative bg-brand-bg-subtle py-20 border-b border-brand-border/40">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
-          <span className="text-xs font-semibold uppercase tracking-widest text-brand-pink">
+          <span className="text-xs font-semibold uppercase tracking-widest text-gray-900">
             Women's Luxury Bags • Accra, Ghana
           </span>
           <h1 className="font-serif text-4xl sm:text-6xl font-bold text-gray-900 leading-tight">

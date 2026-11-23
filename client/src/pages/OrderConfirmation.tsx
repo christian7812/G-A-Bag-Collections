@@ -32,7 +32,7 @@ export const OrderConfirmation: React.FC = () => {
       particleCount: 120,
       spread: 80,
       origin: { y: 0.6 },
-      colors: ['#BE123C', '#E11D48', '#FDA4AF', '#FFFFFF']
+      colors: ['#1A1A1A', '#D5C6B3', '#8B5A2B', '#EFECE6']
     });
     window.scrollTo(0, 0);
   }, []);
@@ -46,7 +46,7 @@ export const OrderConfirmation: React.FC = () => {
         </p>
         <Link
           to="/"
-          className="inline-block px-8 py-3 rounded-full bg-brand-pink text-white hover:bg-brand-pink-dark transition text-xs font-semibold uppercase tracking-wider"
+          className="inline-block px-8 py-3 rounded-full bg-gray-900 text-white hover:bg-black transition text-xs font-semibold uppercase tracking-wider"
         >
           Return to Boutique
         </Link>
@@ -80,7 +80,7 @@ export const OrderConfirmation: React.FC = () => {
 
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-50 text-xs font-mono font-bold text-gray-900 border border-gray-200">
           <span>Order Number:</span>
-          <span className="text-brand-pink">{order.orderNumber}</span>
+          <span className="text-gray-900">{order.orderNumber}</span>
         </div>
       </div>
 
@@ -115,11 +115,11 @@ export const OrderConfirmation: React.FC = () => {
 
           {/* Step 3: Packing */}
           <div className="flex sm:flex-col items-center gap-3 sm:text-center">
-            <div className="w-10 h-10 rounded-full bg-brand-pink text-white flex items-center justify-center shrink-0 ring-4 ring-pink-100 animate-pulse">
+            <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center shrink-0 ring-4 ring-gray-100 animate-pulse">
               <PackageCheck className="w-5 h-5" />
             </div>
             <div>
-              <p className="font-bold text-xs text-brand-pink">Packing in Atelier</p>
+              <p className="font-bold text-xs text-gray-900">Packing in Atelier</p>
               <p className="text-[10px] text-gray-500">Quality check ongoing</p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export const OrderConfirmation: React.FC = () => {
             <p className="font-semibold text-gray-900">{order.deliveryAddress}</p>
             <p className="text-gray-600">{order.city}, {order.region} Region</p>
             {order.deliveryInstructions && (
-              <p className="text-[11px] text-brand-pink mt-0.5">Note: {order.deliveryInstructions}</p>
+              <p className="text-[11px] text-gray-900 mt-0.5">Note: {order.deliveryInstructions}</p>
             )}
           </div>
 
@@ -234,7 +234,7 @@ export const OrderConfirmation: React.FC = () => {
               {order.deliveryFee === 0 ? 'FREE' : `GH₵ ${order.deliveryFee}`}
             </span>
           </div>
-          <div className="flex justify-between sm:justify-end sm:gap-12 text-base font-black text-brand-pink pt-2 border-t border-gray-100">
+          <div className="flex justify-between sm:justify-end sm:gap-12 text-base font-black text-gray-900 pt-2 border-t border-gray-100">
             <span>Grand Total:</span>
             <span>GH₵ {order.total.toLocaleString()}</span>
           </div>
@@ -244,7 +244,7 @@ export const OrderConfirmation: React.FC = () => {
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             to="/shop"
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-pink hover:bg-brand-pink-dark text-white text-xs font-bold uppercase tracking-wider transition shadow-sm text-center"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gray-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition shadow-sm text-center"
           >
             Continue Shopping
           </Link>

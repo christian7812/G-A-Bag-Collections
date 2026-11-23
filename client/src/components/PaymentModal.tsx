@@ -175,7 +175,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
         {/* Header */}
         <div className="p-5 sm:p-6 border-b border-gray-100 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink">
+            <div className="w-8 h-8 rounded-full bg-gray-900/10 flex items-center justify-center text-gray-900">
               <Lock className="w-4 h-4" />
             </div>
             <div>
@@ -193,9 +193,9 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
         </div>
 
         {/* Total Banner */}
-        <div className="bg-pink-50/50 px-6 py-4 border-b border-pink-100/60 flex items-center justify-between">
+        <div className="bg-[#F5F2EB] px-6 py-4 border-b border-gray-200/60 flex items-center justify-between">
           <span className="text-xs font-semibold text-gray-600">Total to Pay</span>
-          <span className="font-serif text-2xl font-black text-brand-pink">
+          <span className="font-serif text-2xl font-black text-gray-900">
             GH₵ {order.total.toLocaleString()}
           </span>
         </div>
@@ -220,7 +220,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
                         onClick={() => setNetwork(opt.id)}
                         className={`p-3 rounded-2xl border-2 text-left transition flex items-center gap-2.5 ${
                           isSelected
-                            ? 'border-brand-pink bg-pink-50/40 shadow-xs'
+                            ? 'border-gray-900 bg-[#F5F2EB]/40 shadow-xs'
                             : 'border-gray-100 hover:border-gray-200 bg-white'
                         }`}
                       >
@@ -247,7 +247,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 024 123 4567"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-900 focus:outline-none focus:border-brand-pink bg-gray-50/50 transition"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-900 focus:outline-none focus:border-gray-900 bg-gray-50/50 transition"
                   />
                 </div>
                 <p className="text-[11px] text-gray-400">
@@ -262,7 +262,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
                 type="button"
                 onClick={handleStartPayment}
                 disabled={isVerifying}
-                className="w-full mt-2 py-3.5 px-5 rounded-2xl bg-brand-pink hover:bg-brand-pink-dark text-white font-black text-xs uppercase tracking-wider transition shadow-md active:scale-98 flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full mt-2 py-3.5 px-5 rounded-2xl bg-gray-900 hover:bg-black text-white font-black text-xs uppercase tracking-wider transition shadow-md active:scale-98 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Lock className="w-4 h-4" />
                 <span>Pay GH₵ {order.total.toLocaleString()}</span>
@@ -280,7 +280,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
           {step === 'authorizing' && (
             <div className="space-y-5 text-center py-2 animate-fade-in">
               <div className="relative w-16 h-16 mx-auto">
-                <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink animate-pulse">
+                <div className="w-16 h-16 rounded-full bg-[#EFECE6] flex items-center justify-center text-gray-900 animate-pulse">
                   <Smartphone className="w-8 h-8" />
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white">
@@ -307,7 +307,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
                   <button
                     type="button"
                     onClick={handleCopyCode}
-                    className="px-3 py-1.5 rounded-xl bg-white border border-gray-200 text-xs font-bold text-gray-700 hover:text-brand-pink transition flex items-center gap-1"
+                    className="px-3 py-1.5 rounded-xl bg-white border border-gray-200 text-xs font-bold text-gray-700 hover:text-black transition flex items-center gap-1"
                   >
                     {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{copiedCode ? 'Copied' : 'Copy'}</span>
@@ -381,7 +381,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ order, isOpen, onSuc
                 <button
                   type="button"
                   onClick={handleStartPayment}
-                  className="flex-1 py-3 rounded-xl bg-brand-pink text-white text-xs font-bold uppercase transition"
+                  className="flex-1 py-3 rounded-xl bg-gray-900 text-white text-xs font-bold uppercase transition"
                 >
                   Retry Prompt
                 </button>

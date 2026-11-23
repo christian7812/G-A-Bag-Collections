@@ -45,7 +45,7 @@ export const Contact: React.FC = () => {
 
             <div className="space-y-5 text-xs text-gray-800">
               <div className="flex items-start gap-4">
-                <div className="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink shrink-0 mt-0.5">
+                <div className="w-9 h-9 rounded-full bg-[#EFECE6] flex items-center justify-center text-gray-900 shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
@@ -55,18 +55,18 @@ export const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink shrink-0 mt-0.5">
+                <div className="w-9 h-9 rounded-full bg-[#EFECE6] flex items-center justify-center text-gray-900 shrink-0 mt-0.5">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">Direct Phone & WhatsApp</h4>
                   <p className="text-gray-500 mt-0.5">+233 (0) 24 412 3456</p>
-                  <p className="text-[11px] text-brand-pink font-semibold mt-0.5">Available for instant WhatsApp inquiries</p>
+                  <p className="text-[11px] text-gray-900 font-semibold mt-0.5">Available for instant WhatsApp inquiries</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink shrink-0 mt-0.5">
+                <div className="w-9 h-9 rounded-full bg-[#EFECE6] flex items-center justify-center text-gray-900 shrink-0 mt-0.5">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>

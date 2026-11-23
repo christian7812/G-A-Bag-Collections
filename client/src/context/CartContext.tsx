@@ -69,7 +69,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [promoCode]);
 
   const addToCart = (product: Product, quantity = 1, selectedColor?: ProductColor, openDrawer = true) => {
-    const color = selectedColor || product.colors[0] || { name: 'Standard', hex: '#BE123C' };
+    const color = selectedColor || product.colors[0] || { name: 'Standard', hex: '#1A1A1A' };
     const cartItemId = `${product.id}-${color.name}`;
 
     setCart((prev) => {

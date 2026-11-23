@@ -65,14 +65,14 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
       <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden my-6">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-brand-pink to-brand-pink-dark px-5 py-4 text-white flex items-center justify-between">
+        <div className="bg-gradient-to-r bg-gray-900 hover:bg-black px-5 py-4 text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">
               👜
             </div>
             <div>
               <h3 className="font-serif text-lg font-bold">Customer Account</h3>
-              <p className="text-[11px] text-pink-100">G&A Collection Ghana</p>
+              <p className="text-[11px] text-gray-300">G&A Collection Ghana</p>
             </div>
           </div>
           <button
@@ -90,7 +90,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
           {/* 1. Track Order Section */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-sm font-bold text-gray-900">
-              <Package className="w-4 h-4 text-brand-pink" />
+              <Package className="w-4 h-4 text-gray-900" />
               <span>Track Your Bag Order</span>
             </div>
             <p className="text-xs text-gray-500">
@@ -108,12 +108,12 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
                     setSearched(false);
                   }}
                   placeholder="Order # or Mobile Phone"
-                  className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm bg-gray-50 border border-gray-200 focus:border-brand-pink rounded-xl outline-none transition"
+                  className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm bg-gray-50 border border-gray-200 focus:border-gray-900 rounded-xl outline-none transition"
                 />
               </div>
               <button
                 type="submit"
-                className="px-4 py-2 bg-brand-pink hover:bg-brand-pink-dark text-white text-xs font-bold rounded-xl transition shrink-0"
+                className="px-4 py-2 bg-gray-900 hover:bg-black text-white text-xs font-bold rounded-xl transition shrink-0"
               >
                 Track
               </button>
@@ -123,8 +123,8 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
             {searched && (
               <div className="mt-3">
                 {searchResult ? (
-                  <div className="bg-pink-50/50 border border-pink-200 rounded-xl p-4 space-y-3 animate-fade-in">
-                    <div className="flex items-center justify-between pb-2 border-b border-pink-100">
+                  <div className="bg-[#F5F2EB] border border-gray-200 rounded-xl p-4 space-y-3 animate-fade-in">
+                    <div className="flex items-center justify-between pb-2 border-b border-gray-200">
                       <div>
                         <span className="text-[10px] uppercase font-bold text-gray-400 block">Order Number</span>
                         <span className="font-mono font-bold text-sm text-gray-900">{searchResult.orderNumber}</span>
@@ -147,12 +147,12 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
                       </div>
                       <div>
                         <span className="text-[10px] text-gray-400 block">Total Amount</span>
-                        <span className="font-bold text-brand-pink">GH₵ {searchResult.totalAmount.toLocaleString()}</span>
+                        <span className="font-bold text-gray-900">GH₵ {searchResult.totalAmount.toLocaleString()}</span>
                       </div>
                     </div>
 
                     {/* Items Purchased */}
-                    <div className="pt-2 border-t border-pink-100">
+                    <div className="pt-2 border-t border-gray-200">
                       <span className="text-[10px] font-bold text-gray-500 uppercase block mb-1.5">Bags in Order</span>
                       <div className="space-y-1.5">
                         {searchResult.items?.map((item: any) => (
@@ -186,37 +186,37 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) =
               href="https://wa.me/233244123456"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-pink-50 transition border border-gray-100 text-xs text-gray-800 font-semibold group"
+              className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-[#F5F2EB] transition border border-gray-100 text-xs text-gray-800 font-semibold group"
             >
               <div className="flex items-center gap-2.5">
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
                 <span>Chat with Accra Support on WhatsApp</span>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-brand-pink group-hover:translate-x-0.5 transition" />
+              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition" />
             </a>
 
             <Link
               to="/contact"
               onClick={onClose}
-              className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-pink-50 transition border border-gray-100 text-xs text-gray-800 font-semibold group"
+              className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-[#F5F2EB] transition border border-gray-100 text-xs text-gray-800 font-semibold group"
             >
               <div className="flex items-center gap-2.5">
-                <HelpCircle className="w-4 h-4 text-brand-pink" />
+                <HelpCircle className="w-4 h-4 text-gray-900" />
                 <span>Delivery Guidelines & 14-Day Exchanges</span>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-brand-pink group-hover:translate-x-0.5 transition" />
+              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition" />
             </Link>
 
             <Link
               to="/shop"
               onClick={onClose}
-              className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-pink-50 transition border border-gray-100 text-xs text-gray-800 font-semibold group"
+              className="flex items-center justify-between p-3 rounded-xl bg-gray-50 hover:bg-[#F5F2EB] transition border border-gray-100 text-xs text-gray-800 font-semibold group"
             >
               <div className="flex items-center gap-2.5">
-                <Package className="w-4 h-4 text-brand-pink" />
+                <Package className="w-4 h-4 text-gray-900" />
                 <span>Browse Latest Bags Catalogue</span>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-brand-pink group-hover:translate-x-0.5 transition" />
+              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition" />
             </Link>
           </div>
 

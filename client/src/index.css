@@ -9,7 +9,7 @@
   
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #F8F9FB;
+    background-color: #FAF8F5;
     color: #1F2937;
     overflow-x: hidden;
   }
@@ -28,11 +28,11 @@
   background: #FDF2F8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #F472B6;
+  background: #D5C6B3;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E11D48;
+  background: #1A1A1A;
 }
 
 /* Animations */
@@ -45,7 +45,7 @@
   animation: fadeIn 0.25s ease-out forwards;
 }
 
-/* Clean Jumia-style nav */
+/* Clean nav */
 .glass-nav {
   background: #FFFFFF;
 }
@@ -55,6 +55,6 @@
 }
 
 ::selection {
-  background: #FCE7F3;
-  color: #BE123C;
+  background: #EFECE6;
+  color: #111827;
 }
